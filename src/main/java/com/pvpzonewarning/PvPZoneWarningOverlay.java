@@ -10,7 +10,6 @@ import net.runelite.api.Client;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
 
 
 public class PvPZoneWarningOverlay extends Overlay {
@@ -28,7 +27,7 @@ public class PvPZoneWarningOverlay extends Overlay {
 
         setPosition(OverlayPosition.DYNAMIC);
         setLayer(OverlayLayer.ALWAYS_ON_TOP);
-        setPriority(OverlayPriority.HIGH);
+        setPriority(PRIORITY_HIGH);
     }
 
     @Override

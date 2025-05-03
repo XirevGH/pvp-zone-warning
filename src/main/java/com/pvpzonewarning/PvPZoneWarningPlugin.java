@@ -6,11 +6,11 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
-import net.runelite.api.Varbits;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
+import net.runelite.api.gameval.VarbitID;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
+import net.runelite.api.gameval.InterfaceID;
 import net.runelite.client.Notifier;
 import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.config.ConfigManager;
@@ -24,7 +24,7 @@ import net.runelite.client.ui.overlay.OverlayManager;
 @PluginDescriptor(
         name = "PvP Zone Warning",
         description = "Warns when leaving a PvP safe zone via chat, notification (optional flash/sound), and center text.",
-        tags = {"pvp", "safe", "zone", "warning", "wilderness", "combat", "flash", "overlay", "sound", "notification"}
+        tags = {"pvp", "safe", "zone", "warning", "wilderness", "combat"}
 )
 public class PvPZoneWarningPlugin extends Plugin {
 
@@ -160,11 +160,11 @@ public class PvPZoneWarningPlugin extends Plugin {
     }
 
     private boolean checkIsInWilderness() {
-        return client.getVarbitValue(Varbits.IN_WILDERNESS) > 0;
+        return client.getVarbitValue(VarbitID.INSIDE_WILDERNESS) > 0;
     }
 
     private boolean isPvPWorldSafeZoneWidgetVisible() {
-        Widget safeZoneWidget = client.getWidget(WidgetInfo.PVP_WORLD_SAFE_ZONE.getPackedId());
+        Widget safeZoneWidget = client.getWidget(InterfaceID.PvpIcons.PVPW_SAFE);
 
         return safeZoneWidget != null && !safeZoneWidget.isHidden();
     }

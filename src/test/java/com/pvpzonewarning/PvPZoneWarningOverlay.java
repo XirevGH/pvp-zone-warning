@@ -1,13 +1,15 @@
 package com.pvpzonewarning;
 
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
-
-import javax.inject.Inject;
-import java.awt.*;
 
 
 public class PvPZoneWarningOverlay extends Overlay {
@@ -25,7 +27,7 @@ public class PvPZoneWarningOverlay extends Overlay {
 
         setPosition(OverlayPosition.DYNAMIC);
         setLayer(OverlayLayer.ALWAYS_ON_TOP);
-        setPriority(OverlayPriority.HIGH);
+        setPriority(PRIORITY_HIGH);
     }
 
     @Override
